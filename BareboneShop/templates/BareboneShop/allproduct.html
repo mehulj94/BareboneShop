@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        p {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Barebone Shop Products</h2>
+
+<table>
+    <tr>
+        <th>Product Name</th>
+        <th>Price</th>
+        <th>Inventory count</th>
+        <th>Buy</th>
+    </tr>
+    {% for prod in products.all %}
+        <tr>
+            <td><a href="{% url 'BareboneShop:product' prod.product_id %}">{{ prod.title }}</a></td>
+            <td>{{ prod.price }}$</td>
+            <td>{{ prod.inventory_cnt }}</td>
+            <td>
+                <button type="button" onclick="alert('Product Sold!')">Buy!</button>
+            </td>
+        </tr>
+    {% endfor %}
+</table>
+<p><a href="{% url 'BareboneShop:viewcart' %}">VIEW CART</a></p>
+</body>
+</html>

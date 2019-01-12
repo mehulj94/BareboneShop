@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        h2 {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<h2>Successful Purchase at Barebone Shop!</h2>
+{% csrf_token %}
+<h2><a href="{% url 'BareboneShop:index' %}">Home</a></h2>
+</body>
+</html>

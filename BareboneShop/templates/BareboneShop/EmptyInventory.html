@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+<h2>Barebone Shop Product</h2>
+{% if error_message %}
+    <p><strong>{{ error_message }}</strong>
+        <a href="{% url 'BareboneShop:product' product.product_id %}">Go Back</a>
+    </p>
+{% endif %}
+{% csrf_token %}
+<div>Product: {{ product.title }}</div>
+<div>Inventory: {{ product.inventory_cnt }}</div>
+<div>Price: {{ product.price }}</div>
+</body>
+</html>
