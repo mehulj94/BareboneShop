@@ -27,6 +27,22 @@
             margin-top: 5px;
         }
 
+        button {
+            background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin-top: 5px;
+        }
+        a {
+            text-decoration: none;
+            color: white;
+        }
+
         p {
             float: right;
             margin-right: 5px;
@@ -60,11 +76,13 @@
     {% endfor %}
 </table>
 
+
 <form action="{% url 'BareboneShop:completecart' %}" method="post" name="cartid">
     {% csrf_token %}
     <input type="hidden" name="Checkout" value="{{ products }}">
     <input type="submit" name="sub" value="Checkout">
 </form>
+<button> <a href="{%  url 'BareboneShop:avlproducts' %}">Available Products</a></button>
 <p>Total Amount: {{ total }}$ </p>
 </body>
 </html>

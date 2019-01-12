@@ -21,7 +21,7 @@ def allproduct(request):
 
 
 def avlproducts(request):
-    amc = Product.objects.filter(inventory_cnt__gt=1)
+    amc = Product.objects.filter(inventory_cnt__gt=0)
     return HttpResponse(render(request, 'BareboneShop/allproduct.html', {'products': amc}))
 
 
@@ -92,7 +92,7 @@ def buyproduct(request, product_id):
             cart.append(buy1)
 
         request.session['cart'] = cart
-        return redirect('BareboneShop:avlproducts')
+        return redirect('BareboneShop:viewcart')
 
     else:
         return HttpResponse(render(request, 'BareboneShop/EmptyInventory.html',
