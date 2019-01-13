@@ -14,7 +14,10 @@ Shopify Developer Intern Challenge Implementation
 | /cart/ | Returns Cart details. Contains products, quantity and total amount of cart      |    GET |
 | /cart/checkout/ | Complete Cart purchase. Inventory of all products in cart will be reduced.      |    POST |
 
-/product/id/addcart/ - POST product json {"product": "Amazon Echo","price": 29,"product_cnt": 1,"checked_out": false,"owner": 1} to addcart
+* Note:
+POST request to endpoint `/product/id/addcart/` should contain the product data as follows:  
+`{"product": "Amazon Echo","price": 29,"product_cnt": 1,"checked_out": false,"owner": 1}`  
+See sample requests below.  
 
 # Sample Requests & Response
 #### GET /products/
@@ -250,11 +253,12 @@ Vary: Accept
 * Run `django-admin startproject Shop` to create new project
 * Copy Barebone App to the new project directory
 * Replace files in new Shop/ directory with this repos files in Shop/
-* Run `python manage.py makemigrations Barebone`
-* Run `python manage.py migrate`
-* Run `python manage.py createsuperuser` to create user
+* Run `python manage.py makemigrations Barebone`. To create migrations files from models
+* Run `python manage.py migrate`. To execute migration file
+* Run `python manage.py createsuperuser`. To create user
 * Run `python manage.py runserver`
 
 # Securing the end points
-* Restricted HTTP methods
-* Input validation-malformed url prevented
+* Access Control: Only authenticated users are able to send POST requests.
+* Restricted HTTP methods: As shown in the table above each function is restricted. All requests not matching the allowed methods rejects with HTTP response code 405 Method not allowed
+* Certain input validations have been implemented
