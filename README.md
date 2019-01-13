@@ -1,7 +1,7 @@
 # BareboneShop
 Shopify Developer Intern Challenge Implementation
 
-# Task List
+# Task List Status
 - [x] Server side web api that can be used to fetch products either one at a time or all at once
 - [x] Every product should have a title, price, and inventory_count
 - [x] Querying for all products should support passing an argument to only return products with available inventory
