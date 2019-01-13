@@ -20,7 +20,7 @@ def api_root(request, format=None):
 
 class ProductList(generics.ListCreateAPIView):
     """
-    List all products, or create a new product.
+    Retrieve all products, or create a new product.
     """
     permission_classes = (permissions.IsAuthenticatedOrReadOnly, IsOwnerOrReadOnly,)
     queryset = Product.objects.all()
@@ -29,7 +29,7 @@ class ProductList(generics.ListCreateAPIView):
 
 class ProductDetail(generics.RetrieveAPIView):
     """
-    Retrieve, update or delete a product instance.
+    Retrieve a single product.
     """
     permission_classes = (permissions.IsAuthenticatedOrReadOnly, IsOwnerOrReadOnly,)
     queryset = Product.objects.all()
@@ -38,7 +38,7 @@ class ProductDetail(generics.RetrieveAPIView):
 
 class ProductAvlList(generics.ListAPIView):
     """
-    List all products, or create a new product.
+    List all available products.
     """
     permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
     queryset = Product.objects.filter(inventory_count__gt=0)
@@ -47,7 +47,7 @@ class ProductAvlList(generics.ListAPIView):
 
 class ProductPurchase(APIView):
     """
-    Update a product instance.
+    Purchase a product. Inventory count is reduced.
     """
     permission_classes = (permissions.IsAuthenticatedOrReadOnly, IsOwnerOrReadOnly,)
 
@@ -66,7 +66,6 @@ class ProductPurchase(APIView):
         serializer = ProductSerializer(product, data=data, partial=True)
         if serializer.is_valid():
             serializer.save()
-            # return Response(serializer.data)
             return Response({"success": True}, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
@@ -75,26 +74,13 @@ class AddCart(APIView):
     """
     Add a product to Cart.
     """
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly, IsOwnerOrReadOnly,)
 
     def get_object(self, pk):
         try:
             return Cart.objects.get(product=pk)
         except Product.DoesNotExist:
             raise Http404
-    """
-    def get(self, request, pk):
-        shop = Cart.objects.all()
-        product = Product.objects.get(id=pk)
-
-        if product.inventory_count < 1:
-            raise Http404
-        shop.owner = request.user
-        shop.product = product.title
-        shop.price = product.price
-        shop.product_cnt = 1
-        serializer = CheckoutSerializer(shop)
-
-        return Response(serializer.data)"""
 
     def post(self, request, pk, format=None):
 
@@ -111,6 +97,9 @@ class AddCart(APIView):
         except:
             flag = 0
 
+        #Below code verifies the incoming data
+        #If the incoming data does not match the data in database
+        #then error is thrown
         if product.inventory_count < 1:
             raise Http404
         elif product.title != product_name:
@@ -144,8 +133,8 @@ class ViewCart(APIView):
     """
     View Cart
     """
-    permission_classes = (permissions.IsAuthenticatedOrReadOnly, IsOwnerOrReadOnly,)
 
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly, IsOwnerOrReadOnly,)
 
     def get(self, request, format=None):
         queryset = Cart.objects.all()
@@ -153,18 +142,17 @@ class ViewCart(APIView):
         total_amount = 0
 
         for item in queryset:
-            total_amount = total_amount+ (item.product_cnt*item.price)
-            products_included[item.product]=item.product_cnt
+            total_amount = total_amount + (item.product_cnt * item.price)
+            products_included[item.product] = item.product_cnt
 
-
-        return Response({"Products":products_included,"Total Amount":total_amount})
+        return Response({"Products": products_included, "Total Amount": total_amount}, status=status.HTTP_200_OK)
 
 
 class CheckoutCart(APIView):
     """
     Checkout Cart
     """
-    #permission_classes = (permissions.IsAuthenticatedOrReadOnly, IsOwnerOrReadOnly,)
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly, IsOwnerOrReadOnly,)
 
     def post(self, request, format=None):
         cart_items = Cart.objects.all()
@@ -175,4 +163,4 @@ class CheckoutCart(APIView):
             products.save()
             items.delete()
 
-        return Response({"Success":"Cart Checkout Successful"}, status=status.HTTP_200_OK)
+        return Response({"Success": "Cart Checkout Successful"}, status=status.HTTP_200_OK)

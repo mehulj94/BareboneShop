@@ -8,7 +8,7 @@ Shopify Developer Intern Challenge Implementation
 | /      | Return link to products & cart endpoints | GET |
 | /products/      | Returns all products & Create new products | GET, POST |
 | /products/{id}/      | Returns single product. id parameter will be 1,2,3..      |   GET |
-| /products/{id}/avl/ | Returns all products with non zero inventory      |    GET |
+| /products/avl/ | Returns all products with non zero inventory      |    GET |
 | /products/{id}/purchase/ | Endpoint to purchase product. It will decrease the product's inventory by 1. Products with zero inventory will throw 404 error "Not found"     |    POST |
 | /product/{id}/addcart/ | Endpoint to add product to Cart      |    POST |
 | /cart/ | Returns Cart details. Contains products, quantity and total amount of cart      |    GET |
