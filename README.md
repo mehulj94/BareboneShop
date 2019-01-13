@@ -249,7 +249,7 @@ Vary: Accept
 }
 </pre>
 
-# Configuring Django App
+# Configuring Barebone Django App
 * Run `django-admin startproject Shop` to create new project
 * Copy Barebone App to the new project directory
 * Replace files in new Shop/ directory with this repos files in Shop/
@@ -261,4 +261,4 @@ Vary: Accept
 # Securing the end points
 * Access Control: Only authenticated users are able to send POST requests.
 * Restricted HTTP methods: As shown in the table above each function is restricted. All requests not matching the allowed methods rejects with HTTP response code 405 Method not allowed
-* Certain input validations have been implemented
+* Input validations have been implemented
