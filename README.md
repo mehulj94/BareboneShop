@@ -246,6 +246,15 @@ Vary: Accept
 }
 </pre>
 
+# Configuring Django App
+* Run `django-admin startproject Shop` to create new project
+* Copy Barebone App to the new project directory
+* Replace files in new Shop/ directory with this repos files in Shop/
+* Run `python manage.py makemigrations Barebone`
+* Run `python manage.py migrate`
+* Run `python manage.py createsuperuser` to create user
+* Run `python manage.py runserver`
+
 # Securing the end points
-Restricted HTTP methods
-Input validation-malformed url prevented
+* Restricted HTTP methods
+* Input validation-malformed url prevented
