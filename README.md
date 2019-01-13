@@ -12,9 +12,9 @@ Shopify Developer Intern Challenge Implementation
 - [x] Completing the cart
 - [x] Cart should contain a list of all included products, a total dollar amount
 - [x] Product inventory shouldn't reduce until after a cart has been completed
-- [x] API (at least partly) secure
-- [x] Writing documentation
-- [x] Including unit tests
+- [x] Secure API
+- [x] Write documentation
+- [x] Include unit tests
 - [ ] Building API using GraphQL
 
 # Endpoints
