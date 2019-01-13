@@ -258,6 +258,9 @@ Vary: Accept
 * Run `python manage.py createsuperuser`. To create user
 * Run `python manage.py runserver`
 
+# Testing
+* Test cases are written in `Barebones/test.py`. Execute `python manage.py test` for running test cases.
+
 # Securing the end points
 * Access Control: Only authenticated users are able to send POST requests.
 * Restricted HTTP methods: As shown in the table above each function is restricted. All requests not matching the allowed methods rejects with HTTP response code 405 Method not allowed
