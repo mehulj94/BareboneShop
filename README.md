@@ -20,19 +20,18 @@ Shopify Developer Intern Challenge Implementation
 #### Endpoint /products/
 * Request  
 
-`  
-GET /products/ HTTP/1.1  
-Host: 127.0.0.1:8000  
-Connection: keep-alive  
-Cache-Control: max-age=0  
-Upgrade-Insecure-Requests: 1  
-User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36  
-DNT: 1  
-Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8  
-Accept-Encoding: gzip, deflate, br  
-Accept-Language: en-US,en;q=0.9  
-Cookie: csrftoken=VHcNRPaoYtUPQ8QliFJGJQZgBbV3vSGBPUEUpjitzd32T129nXqpEJgDFPV1LrVm; sessionid=3kieqota42sr0ujfxeegajgfk3asts6l;  tabstyle=html-tab  
-`  
+`GET /products/ HTTP/1.1`  
+`Host: 127.0.0.1:8000`  
+`Connection: keep-alive`  
+`Cache-Control: max-age=0`  
+`Upgrade-Insecure-Requests: 1`  
+`User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36`  
+`DNT: 1`  
+`Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8`  
+`Accept-Encoding: gzip, deflate, br`  
+`Accept-Language: en-US,en;q=0.9`  
+`Cookie: csrftoken=VHcNRPaoYtUPQ8QliFJGJQZgBbV3vSGBPUEUpjitzd32T129nXqpEJgDFPV1LrVm; sessionid=3kieqota42sr0ujfxeegajgfk3asts6l;  tabstyle=html-tab`  
+
 * Response  
 
 `  
