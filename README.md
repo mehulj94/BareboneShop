@@ -1,6 +1,22 @@
 # BareboneShop
 Shopify Developer Intern Challenge Implementation
 
+# Task List
+- [x] Server side web api that can be used to fetch products either one at a time or all at once
+- [x] Every product should have a title, price, and inventory_count
+- [x] Querying for all products should support passing an argument to only return products with available inventory
+- [x] Products should be able to be "purchased" which should reduce the inventory by 1
+- [x] Products with no inventory cannot be purchased.
+- [x] Fit these product purchases into the context of a simple shopping cart
+- [x] Creating a cart, adding products to the cart
+- [x] Completing the cart
+- [x] Cart should contain a list of all included products, a total dollar amount
+- [x] Product inventory shouldn't reduce until after a cart has been completed
+- [x] API (at least partly) secure
+- [x] Writing documentation
+- [x] Including unit tests
+- [ ] Building API using GraphQL
+
 # Endpoints
 
 | Endpoint        | Description           | Method Allowed  |
@@ -15,9 +31,10 @@ Shopify Developer Intern Challenge Implementation
 | /cart/checkout/ | Complete Cart purchase. Inventory of all products in cart will be reduced.      |    POST |
 
 * Note:
-POST request to endpoint `/product/id/addcart/` should contain the product data as follows:  
+  * POST request to endpoint `/product/id/addcart/` should contain the product data as follows:  
 `{"product": "Amazon Echo","price": 29,"product_cnt": 1,"checked_out": false,"owner": 1}`  
 See sample requests below.  
+  * `/products/{id}/purchase/` Products with no inventory cannot be purchased. 404 Not Found response will be generated
 
 # Sample Requests & Response
 #### GET /products/
