@@ -34,7 +34,7 @@ Shopify Developer Intern Challenge Implementation
 
 * Response  
 
-`  
+<pre>
 {  
   "count": 3,  
   "next": null,  
@@ -60,7 +60,7 @@ Shopify Developer Intern Challenge Implementation
     }  
   ]  
 }  
-`  
+</pre>
 
 # Securing the end points
 Restricted HTTP methods
