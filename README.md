@@ -30,10 +30,35 @@ DNT: 1
 Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8
 Accept-Encoding: gzip, deflate, br
 Accept-Language: en-US,en;q=0.9
-Cookie: csrftoken=VHcNRPaoYtUPQ8QliFJGJQZgBbV3vSGBPUEUpjitzd32T129nXqpEJgDFPV1LrVm; sessionid=3kieqota42sr0ujfxeegajgfk3asts6l; tabstyle=html-tab`
+Cookie: csrftoken=VHcNRPaoYtUPQ8QliFJGJQZgBbV3vSGBPUEUpjitzd32T129nXqpEJgDFPV1LrVm; sessionid=3kieqota42sr0ujfxeegajgfk3asts6l;  tabstyle=html-tab `
 
 `
-{"count":3,"next":null,"previous":null,"results":[{"id":1,"title":"Iphone 6","price":350,"inventory_count":17},{"id":2,"title":"Amazon Echo","price":29,"inventory_count":42},{"id":3,"title":"Oneplus 6t","price":650,"inventory_count":0}]} `
+{ 
+  "count": 3,
+  "next": null,
+  "previous": null,
+  "results": [
+    {
+      "id": 1,
+      "title": "Iphone 6",
+      "price": 350,
+      "inventory_count": 17
+    },
+    {
+      "id": 2,
+      "title": "Amazon Echo",
+      "price": 29,
+      "inventory_count": 42
+    },
+    {
+      "id": 3,
+      "title": "Oneplus 6t",
+      "price": 650,
+      "inventory_count": 0
+    }
+  ]
+}
+`
 # Securing the end points
 Restricted HTTP methods
 Input validation-malformed url prevented
