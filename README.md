@@ -266,6 +266,12 @@ Vary: Accept
 }
 </pre>
 
+# Requirements
+* graphene-django = 2.2.0
+* Django = 2.1.5
+* Python = 3.7.2
+
+
 # Configuring Barebone Django App
 * Run `django-admin startproject Shop` to create new project
 * Copy Barebone App to the new project directory
