@@ -266,6 +266,117 @@ Vary: Accept
 }
 </pre>
 
+# GraphQL Requests
+* Create new product
+<pre>
+mutation{
+  createProduct(
+    title: "Phillips iron",
+    price: 20,
+    inventoryCount: 5
+  ){
+    id
+    title
+    price
+    inventoryCount
+  }
+}
+</pre>
+
+* Query all products
+<pre>
+query {
+  	products {
+      id
+      title
+      price
+      inventoryCount
+  }
+}
+</pre>
+
+* Get products with inventory count greater than 0
+<pre>
+query {
+  	products(avl:1){
+      id
+      title
+      price
+      inventoryCount
+  }
+}
+</pre>
+
+* Get individual products
+<pre>
+query {
+  	products(id:1){
+      id
+      title
+      price
+      inventoryCount
+  }
+}
+</pre>
+
+* Get the cart
+<pre>
+query {
+  	cart{
+      products {
+        product
+        productCnt
+        totalCost
+      }
+      cartAmount
+  }
+}
+</pre>
+
+* To purchase single product
+<pre>
+mutation{
+  createPurchaseproduct(
+    title: "Iphone 6",
+    price: 350,
+    inventoryCount: 1
+  ){
+    title
+    price
+    inventoryCount
+    status
+  }
+}
+</pre>
+
+* Add to cart
+<pre>
+mutation{
+  createAddcart(
+    product: "Iphone 6",
+    price: 350,
+    productCnt: 1
+  ){
+    product
+    price
+    productCnt
+    checkedOut
+    status
+  }
+}
+</pre>
+
+* Checkout cart
+<pre>
+mutation{
+  createCheckout(
+    checkout: true
+  ){
+    status
+  }
+}
+</pre>
+
 # Requirements
 * graphene-django = 2.2.0
 * Django = 2.1.5
