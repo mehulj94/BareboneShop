@@ -286,7 +286,7 @@ mutation{
 * Query all products
 <pre>
 query {
-  	products {
+  products {
       id
       title
       price
