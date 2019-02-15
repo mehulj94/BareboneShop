@@ -187,8 +187,39 @@ class CreateAddCart(graphene.Mutation):
         )
 
 
+class CreateCheckout(graphene.Mutation):
+    checkout = graphene.Boolean()
+    status = graphene.String()
+
+    class Arguments:
+        checkout = graphene.Boolean()
+        status = graphene.String()
+
+    def mutate(self, info, checkout):
+        if checkout == True:
+            cart_items = Cart.objects.all()
+
+            for items in cart_items:
+                products = Product.objects.get(title=items.product)
+                products.inventory_count = products.inventory_count - items.product_cnt
+                products.save()
+                items.delete()
+
+            status = "Cart checkout successful"
+
+            return CreateCheckout(
+                status=status,
+            )
+        else:
+            status = "Cart checkout pending"
+            return CreateCheckout(
+                status=status,
+            )
+
+
 class Mutation(graphene.ObjectType):
     create_product = CreateProduct.Field()
     create_purchaseproduct = CreatePurchaseProduct.Field()
     create_addcart = CreateAddCart.Field()
+    create_checkout = CreateCheckout.Field()
 
