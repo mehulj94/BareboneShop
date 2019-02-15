@@ -298,7 +298,7 @@ query {
 * Get products with inventory count greater than 0
 <pre>
 query {
-  	products(avl:1){
+  products(avl:1){
       id
       title
       price
@@ -310,7 +310,7 @@ query {
 * Get individual products
 <pre>
 query {
-  	products(id:1){
+  products(id:1){
       id
       title
       price
@@ -322,7 +322,7 @@ query {
 * Get the cart
 <pre>
 query {
-  	cart{
+  cart{
       products {
         product
         productCnt
