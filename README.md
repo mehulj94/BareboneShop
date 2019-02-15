@@ -15,7 +15,7 @@ Shopify Developer Intern Challenge Implementation
 - [x] Secure API
 - [x] Write documentation
 - [x] Include unit tests
-- [ ] Building API using GraphQL
+- [x] Building API using GraphQL
 
 # Endpoints
 
