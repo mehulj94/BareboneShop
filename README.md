@@ -1,5 +1,4 @@
 # BareboneShop
-Shopify Developer Intern Challenge Implementation
 
 # Task List Status
 - [x] Server side web api that can be used to fetch products either one at a time or all at once
